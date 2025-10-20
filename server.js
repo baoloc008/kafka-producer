@@ -2,12 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { Kafka, Partitioners } = require("kafkajs");
 
-const SERVER_PORT = 3000;
+const SERVER_PORT = 4000;
 
 const app = express();
 app.use(bodyParser.json());
 
 const kafka = new Kafka({ brokers: ["127.0.0.1:9092"] });
+
 const producer = kafka.producer({
   createPartitioner: Partitioners.DefaultPartitioner,
 });
